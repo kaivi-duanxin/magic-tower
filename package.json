@@ -4,6 +4,7 @@
     "description": "a game",
     "main": "main",
     "scripts": {
+        "build": "webpack --config webpack.config.js --mode production",
         "watch": "webpack -w"
     },
     "keywords": [
