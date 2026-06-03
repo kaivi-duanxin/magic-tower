@@ -1,9 +1,19 @@
+html {
+    background-color: #1a1a1a;
+}
+body, #app-shell, #show, #panel, #shop, #dialog, #confirm, #menu-wrap, #cheat-panel .cheat-card, #floor, #monster-book-wrap {
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     display: flex;
-    flex-direction:column;
-    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px 16px;
+    background: radial-gradient(circle at top, #404040, #171717 60%);
     user-select: none;
+    overflow: auto;
 }
 #mask{
     visibility: hidden;
@@ -26,11 +36,12 @@ body {
     z-index: 9999;
 }
 #shop .desc{
-    padding-left: 40px;
+    padding-left: 24px;
 }
 #shop .btn{
     display: block;
     width: 400px;
+    max-width: calc(100% - 32px);
     height: 80px;
     line-height: 80px;
     text-align: center;
@@ -41,11 +52,21 @@ body {
 #game, #panel{
     /*opacity: 0;*/
 }
+#app-shell{
+    width: min(430px, calc(100vw - 32px));
+    height: 760px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
+    background-color: #111;
+}
 #show{
     position: relative;
-    width: 200vw;
-    height: 200vw;
-    zoom: .5;
+    width: 100%;
+    height: 430px;
+    flex: 0 0 430px;
 }
 #game {
     position: absolute;
@@ -141,9 +162,9 @@ body {
 #message{
     opacity: 0;
     position: absolute;
-    height: 200px;
-    line-height: 200px;
-    font-size: 40px;
+    height: 120px;
+    line-height: 120px;
+    font-size: 26px;
     text-align: center;
     background-color: rgba(0, 0, 0, .8);
     color: orange;
@@ -155,10 +176,10 @@ body {
 
 /* 面板 */
 #panel{
-    /*display: none;*/
     position: relative;
-    flex: 1;
-    box-sizing: border-box;
+    width: 100%;
+    height: 330px;
+    flex: 0 0 330px;
     background: url("./images/panel_bg.png") no-repeat center;
     background-size: 100% 100%;
     user-select: none;
@@ -166,16 +187,7 @@ body {
 
 /* 控制器 */
 #control {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    background: url("./images/interface/normal.png") no-repeat;
-    background-size: cover;
+    display: none;
 }
 #control.up{
     background: url("./images/interface/up.png") no-repeat;
@@ -201,7 +213,7 @@ body {
 
 /* 玩家信息 */
 #panel .info{
-    padding: 5px 0;
+    padding: 12px 0 8px;
     overflow: hidden;
     font-size: 14px;
 }
@@ -220,7 +232,7 @@ body {
     width: 32px;
     height: 32px;
     background-image: url("./images/menu.png");
-    bottom: 20px;
+    bottom: 18px;
     right: 20px;
 }
 #menu-wrap{
@@ -522,7 +534,7 @@ body {
 #key-list{
     position: absolute;
     left: 10px;
-    top: 90px;
+    top: 72px;
     margin: 0;
     padding: 0;
 }
@@ -607,4 +619,49 @@ body {
     color: #333;
     padding-left: 4px;
     letter-spacing: 1px;
+}
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+        background: #111;
+    }
+    #app-shell{
+        width: 100vw;
+        min-height: 100vh;
+        height: auto;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    #show{
+        height: 100vw;
+        flex-basis: 100vw;
+    }
+    #panel{
+        flex: 1;
+        height: auto;
+        min-height: 230px;
+    }
+    #message{
+        font-size: 22px;
+    }
+}
+@media (max-width: 520px) {
+    body {
+        padding: 0;
+        background: #111;
+    }
+    #app-shell{
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    #show{
+        height: min(100vw, 100vh - 330px);
+        flex-basis: min(100vw, 100vh - 330px);
+    }
+    #panel{
+        flex: 1;
+        height: auto;
+    }
 }

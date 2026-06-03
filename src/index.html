@@ -6,73 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 </head>
 <body>
-    <!-- 展示 -->
-    <div id="show">
-        <!-- 游戏层 -->
-        <canvas id="game" width="704" height="704"></canvas>
-        <!-- 静态层 -->
-        <canvas id="static" width="704" height="704"></canvas>
-        <!-- 活动层 -->
-        <canvas id="active" width="704" height="704"></canvas>
-        <!-- 消息层 -->
-        <div id="message"></div>
-        <!-- 商店 -->
-        <div id="shop">
-            <p class="desc" id="shop-cost"></p>
-            <div class="btn" id="add-hp">增加点生命</div>
-            <div class="btn" id="add-attack">增加点攻击</div>
-            <div class="btn" id="add-defense">增加点防御</div>
-            <div class="btn" id="close-shop">离开商店</div>
-        </div>
-    </div>
-
-    <!-- 控制、面板 -->
-    <div id="panel">
-        <!-- 对话层 -->
-        <div id="dialog">
-            <img id="dialog-icon" src="" />
-            <ul id="dialog-list"></ul>
-        </div>
-        <div id="confirm">
-            <img id="confirm-icon" src="" />
-            <div id="confirm-content"></div>
-            <div class="btns">
-                <div class="btn" id="confirm-cancel">取消</div>
-                <div class="btn" id="confirm-ok">确定</div>
+    <div id="app-shell">
+        <!-- 展示 -->
+        <div id="show">
+            <!-- 游戏层 -->
+            <canvas id="game" width="704" height="704"></canvas>
+            <!-- 静态层 -->
+            <canvas id="static" width="704" height="704"></canvas>
+            <!-- 活动层 -->
+            <canvas id="active" width="704" height="704"></canvas>
+            <!-- 消息层 -->
+            <div id="message"></div>
+            <!-- 商店 -->
+            <div id="shop">
+                <p class="desc" id="shop-cost"></p>
+                <div class="btn" id="add-hp">增加点生命</div>
+                <div class="btn" id="add-attack">增加点攻击</div>
+                <div class="btn" id="add-defense">增加点防御</div>
+                <div class="btn" id="close-shop">离开商店</div>
             </div>
         </div>
-        <div class="info">
-            <p class="item">血量: <span class="hp-value"></span></p>
-            <p class="item">攻击: <span class="attack-value"></span></p>
-            <p class="item">防御: <span class="defense-value"></span></p>
-            <p class="item">金币: <span class="money-value"></span></p>
+
+        <!-- 控制、面板 -->
+        <div id="panel">
+            <!-- 对话层 -->
+            <div id="dialog">
+                <img id="dialog-icon" src="" />
+                <ul id="dialog-list"></ul>
+            </div>
+            <div id="confirm">
+                <img id="confirm-icon" src="" />
+                <div id="confirm-content"></div>
+                <div class="btns">
+                    <div class="btn" id="confirm-cancel">取消</div>
+                    <div class="btn" id="confirm-ok">确定</div>
+                </div>
+            </div>
+            <div class="info">
+                <p class="item">血量: <span class="hp-value"></span></p>
+                <p class="item">攻击: <span class="attack-value"></span></p>
+                <p class="item">防御: <span class="defense-value"></span></p>
+                <p class="item">金币: <span class="money-value"></span></p>
+            </div>
+            <div id="control">
+                <canvas class="control-btn" id="up" width="200" height="200"></canvas>
+                <canvas class="control-btn" id="down" width="200" height="200"></canvas>
+                <canvas class="control-btn" id="left" width="200" height="200"></canvas>
+                <canvas class="control-btn" id="right" width="200" height="200"></canvas>
+            </div>
+            <div id="menu-btn"></div>
+            <div id="item-btn"></div>
+            <div id="chuansong-btn"></div>
+            <div id="cheat-btn">GM</div>
+            <div id="monster-book"></div>
+            <ul id="key-list">
+                <li>
+                    <span class="key" id="yellowkey"></span>
+                    <span id="yellowkey-num">0</span>
+                </li>
+                <li>
+                    <span class="key" id="bluekey"></span>
+                    <span id="bluekey-num">0</span>
+                </li>
+                <li>
+                    <span class="key" id="redkey"></span>
+                    <span id="redkey-num">0</span>
+                </li>
+                <li id="floor-num">第4层</li>
+            </ul>
         </div>
-        <div id="control">
-            <canvas class="control-btn" id="up" width="200" height="200"></canvas>
-            <canvas class="control-btn" id="down" width="200" height="200"></canvas>
-            <canvas class="control-btn" id="left" width="200" height="200"></canvas>
-            <canvas class="control-btn" id="right" width="200" height="200"></canvas>
-        </div>
-        <div id="menu-btn"></div>
-        <div id="item-btn"></div>
-        <div id="chuansong-btn"></div>
-        <div id="cheat-btn">GM</div>
-        <div id="monster-book"></div>
-        <ul id="key-list">
-            <li>
-                <span class="key" id="yellowkey"></span>
-                <span id="yellowkey-num">0</span>
-            </li>
-            <li>
-                <span class="key" id="bluekey"></span>
-                <span id="bluekey-num">0</span>
-            </li>
-            <li>
-                <span class="key" id="redkey"></span>
-                <span id="redkey-num">0</span>
-            </li>
-            <li id="floor-num">第4层</li>
-        </ul>
     </div>
     <!-- 遮罩层 -->
     <div id="mask"></div>
