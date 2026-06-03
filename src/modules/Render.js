@@ -566,14 +566,15 @@ export default {
             this.msg('没有传送权杖');
         } else {
             if( game.getMap().csPos.includes(game.player.index) ) {
-                document.getElementById('floor-list').innerHTML = '';
+                let floorList = document.getElementById('floor-list');
+                floorList.innerHTML = '';
                 for( let i=0; i<game.floors.length; i++ ) {
                     let li = document.createElement('li');
                     li.innerHTML = game.floors[i];
                     if( game.floors[i] === game.mapIndex ) {
-                        li.className = 'active';
+                        li.className = 'active selected';
                     }
-                    document.getElementById('floor-list').append(li);
+                    floorList.append(li);
                     li.onclick = ev => {
                         if( game.floors[i] === game.mapIndex ) {
                             return false;
@@ -590,6 +591,9 @@ export default {
                             game.player.set({index: game.getMap()[name]});
                             //  在场景过度到一半的时候重新渲染新地图，同时暂停游戏
                             game.init();
+                            if( game.mapIndex === game.getMaxFloor() ) {
+                                this.msg(game.getDemoFinalTip());
+                            }
                         });
                     }
                 }

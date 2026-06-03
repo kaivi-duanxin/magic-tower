@@ -56,6 +56,7 @@
         <div id="menu-btn"></div>
         <div id="item-btn"></div>
         <div id="chuansong-btn"></div>
+        <div id="cheat-btn">GM</div>
         <div id="monster-book"></div>
         <ul id="key-list">
             <li>
@@ -82,6 +83,34 @@
         <button id="save">存档</button>
         <button id="load">读档</button>
         <button id="close-menu">关闭</button>
+        <div id="shortcut-guide">
+            <p class="guide-title">快捷键</p>
+            <ul>
+                <li><span>移动</span><span>W / A / S / D 或方向键</span></li>
+                <li><span>菜单</span><span>M</span></li>
+                <li><span>图鉴</span><span>B</span></li>
+                <li><span>传送</span><span>T</span></li>
+                <li><span>金手指</span><span>G</span></li>
+                <li><span>上一层 / 下一层闪现</span><span>K / L</span></li>
+                <li><span>菜单选项</span><span>1 / 2 / 3 / 4</span></li>
+                <li><span>关闭弹层</span><span>Esc</span></li>
+                <li><span>确认 / 继续对话</span><span>Enter / Space</span></li>
+                <li><span>商店选项</span><span>1 / 2 / 3 / 4</span></li>
+                <li><span>楼层选择</span><span>W / S 或 ↑ / ↓，Enter 确认</span></li>
+                <li><span>图鉴滚动</span><span>W / S、↑ / ↓、PgUp / PgDn</span></li>
+            </ul>
+        </div>
+    </div>
+    <div id="cheat-panel">
+        <div class="cheat-card">
+            <h1 class="title">金手指</h1>
+            <p class="desc">输入数值后，可对角色属性和钥匙做加、减或直接设置。</p>
+            <div id="cheat-fields"></div>
+            <div class="cheat-footer">
+                <button id="cheat-reset">恢复推荐数值</button>
+                <button id="cheat-close">关闭</button>
+            </div>
+        </div>
     </div>
     <!-- 怪物图鉴 -->
     <div id="monster-book-wrap">

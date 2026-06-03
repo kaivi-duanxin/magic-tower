@@ -72,6 +72,17 @@ class Game{
     getMap(index = this.mapIndex) {
         return this.maps[index];
     }
+    getMaxFloor() {
+        return this.maps.reduce((maxFloor, map) => {
+            if( typeof map.index === 'number' && map.index > maxFloor ) {
+                return map.index;
+            }
+            return maxFloor;
+        }, 1);
+    }
+    getDemoFinalTip(index = this.mapIndex) {
+        return `已到第${index}层，本项目当前为 Demo，后续内容开发中`;
+    }
     //  获取指定位置信息
     getGrid(index) {
         return this.getMap().grids[index];

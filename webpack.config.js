@@ -27,6 +27,18 @@ module.exports = {
                 ]
             },
             {
+                test: /\.(mp3|m4a|aac|ogg|wav)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            publicPath: '../',
+                            name: 'media/[name].[ext]'
+                        }
+                    }
+                ]
+            },
+            {
                 test:/\.css$/,
                 use:[
                     {

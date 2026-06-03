@@ -41,6 +41,31 @@ const offsetY = control.getBoundingClientRect().top;
 
 let direction = null;
 
+function isEditableTarget(target) {
+    if( !target ) {
+        return false;
+    }
+    let tagName = target.tagName;
+    return tagName === 'INPUT' || tagName === 'TEXTAREA' || tagName === 'SELECT' || target.isContentEditable;
+}
+
+function isVisible(id) {
+    let node = document.getElementById(id);
+    return !!node && getComputedStyle(node).visibility === 'visible';
+}
+
+function isPanelOpen() {
+    let menuWrap = document.getElementById('menu-wrap');
+    let monsterBookWrap = document.getElementById('monster-book-wrap');
+    return isVisible('dialog')
+        || isVisible('confirm')
+        || isVisible('shop')
+        || isVisible('floor')
+        || isVisible('cheat-panel')
+        || !!menuWrap && menuWrap.dataset.open === '1'
+        || !!monsterBookWrap && monsterBookWrap.dataset.open === '1';
+}
+
 function getDerection(x, y) {
     if (upCtx.isPointInPath(x, y)) {
         return 'up';
@@ -101,8 +126,12 @@ window.onkeyup = ev => {
 }
 
 window.onkeydown = ev => {
-    //  如果按下了方向键且该方向不是角色当前移动方向，则往栈中压入一个新的移动方向，且用户改变移动方向
-    if (/^37|38|39|40$/.test(ev.keyCode) && game.running) {
+    if (ev.defaultPrevented || isEditableTarget(ev.target) || isPanelOpen()) {
+        return;
+    }
+    //  支持方向键和 WASD
+    if (key[ev.keyCode] && game.running) {
+        ev.preventDefault();
         game.player.startMove(key[ev.keyCode], game);
     }
 }

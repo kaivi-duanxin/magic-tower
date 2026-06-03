@@ -244,6 +244,40 @@ body {
     margin: 20px auto;
     line-height: 2em;
 }
+#shortcut-guide{
+    width: 80%;
+    margin: 28px auto 0;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, .08);
+    color: #eee;
+    border-radius: 8px;
+}
+#shortcut-guide .guide-title{
+    margin: 0 0 10px;
+    color: orange;
+    text-align: center;
+    letter-spacing: 1px;
+}
+#shortcut-guide ul{
+    margin: 0;
+    padding: 0;
+}
+#shortcut-guide li{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    align-items: flex-start;
+}
+#shortcut-guide li span:last-child{
+    text-align: right;
+}
+#shortcut-guide li:last-child{
+    margin-bottom: 0;
+}
 #chuansong-btn{
     position: absolute;
     right: 20px;
@@ -267,6 +301,133 @@ body {
     width: 32px;
     height: 32px;
     background-image: url("./images/book.png");
+}
+#cheat-btn{
+    position: absolute;
+    right: 16px;
+    top: 160px;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-image: url("./images/button_bg.png");
+    background-size: 100% 100%;
+    z-index: 99;
+}
+#cheat-panel{
+    visibility: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 99999;
+}
+#cheat-panel .cheat-card{
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 16px;
+    bottom: 16px;
+    margin: auto;
+    max-width: 480px;
+    max-height: 680px;
+    padding: 16px;
+    box-sizing: border-box;
+    background-color: #1c1c1c;
+    border: 4px solid transparent;
+    border-image: linear-gradient(to right, #c8c8c8, #f4f4f4, #c8c8c8) 1 1;
+    color: #ddd;
+    overflow: hidden;
+}
+#cheat-panel .title{
+    margin: 0;
+    text-align: center;
+    color: orange;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+#cheat-panel .desc{
+    margin: 12px 0 16px;
+    font-size: 14px;
+    text-align: center;
+    color: #cfcfcf;
+}
+#cheat-fields{
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 84px;
+    bottom: 92px;
+    overflow-y: auto;
+}
+#cheat-fields .cheat-row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, .05);
+    border-radius: 8px;
+}
+#cheat-fields .cheat-label{
+    width: 72px;
+    font-size: 14px;
+    color: orange;
+}
+#cheat-fields .cheat-current{
+    width: 64px;
+    text-align: right;
+    font-size: 14px;
+    color: #fff;
+}
+#cheat-fields .cheat-input{
+    width: 72px;
+    margin: 0 8px;
+    padding: 6px 8px;
+    box-sizing: border-box;
+    background-color: #111;
+    border: 1px solid #777;
+    color: #fff;
+    border-radius: 4px;
+}
+#cheat-fields .cheat-action{
+    min-width: 54px;
+    margin-right: 8px;
+    margin-top: 8px;
+    padding: 6px 10px;
+    border: none;
+    color: #fff;
+    background-image: url("./images/button_bg.png");
+    background-size: 100% 100%;
+    background-color: transparent;
+}
+#cheat-fields .cheat-actions{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    justify-content: flex-end;
+}
+#cheat-panel .cheat-footer{
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+#cheat-panel .cheat-footer button{
+    width: calc(50% - 8px);
+    height: 42px;
+    border: none;
+    color: #fff;
+    background-image: url("./images/button_bg.png");
+    background-size: 100% 100%;
+    background-color: transparent;
 }
 #monster-book-wrap{
     position: fixed;
@@ -437,6 +598,10 @@ body {
 }
 #floor-list li.active{
     border: 2px solid crimson;
+}
+#floor-list li.selected{
+    background-color: rgb(255, 213, 128);
+    box-shadow: 0 0 0 2px #fff inset;
 }
 #floor-num{
     color: #333;

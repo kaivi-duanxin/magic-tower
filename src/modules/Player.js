@@ -25,8 +25,8 @@ class Player{
         //  判断角色是否在转向
         this.turn = null;
         this.hp = 1000;
-        this.attack = 210;
-        this.defense = 200;
+        this.attack = 10;
+        this.defense = 10;
         this.money = 100;
         this.items = {
             yellowkey: 10,
@@ -294,6 +294,9 @@ class Player{
                 imgPos = 0;
                 //  在场景过度到一半的时候重新渲染新地图，同时暂停游戏
                 game.init();
+                if( game.mapIndex === game.getMaxFloor() ) {
+                    render.msg(game.getDemoFinalTip());
+                }
                 game.pause();
             });
         }

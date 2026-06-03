@@ -22,9 +22,13 @@ module.exports = {
     grid,
     size: 32,
     key: {
+        87: 'up',
         38: 'up',
+        83: 'down',
         40: 'down',
+        65: 'left',
         37: 'left',
+        68: 'right',
         39: 'right'
     }
 }
